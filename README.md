@@ -30,11 +30,11 @@ Dataset dibaca menggunakan **CSV Reader** pada KNIME sebelum masuk proses pember
 
 Tahapan ini bertujuan memastikan data siap digunakan untuk analisis dan visualisasi.
 
-### ✔ CSV Reader
+### CSV Reader
 
 Node ini digunakan untuk membaca file *Cereals.csv* dan memuat seluruh kolom nutrisi ke dalam workflow.
 
-### ✔ Missing Value
+### Missing Value
 
 Digunakan untuk menangani nilai kosong pada dataset:
 
@@ -44,7 +44,7 @@ Digunakan untuk menangani nilai kosong pada dataset:
 
 Proses ini memastikan dataset bebas dari missing value yang dapat mengganggu analisis.
 
-### ✔ Math Formula — *NutritionScore*
+### Math Formula — *NutritionScore*
 
 Formula:
 
@@ -54,7 +54,7 @@ $calories$ + $protein$ + $fiber$
 
 Node ini menambahkan kolom baru bernama **NutritionScore** yang digunakan untuk melakukan klasifikasi kesehatan sereal.
 
-### ✔ Rule Engine — *prediction*
+### Rule Engine — *prediction*
 
 Aturan klasifikasi:
 
@@ -65,11 +65,11 @@ TRUE => "Less Healthy"
 
 Node ini menghasilkan label kategori kesehatan berdasarkan skor nutrisi sederhana.
 
-### ✔ Column Filter
+### Column Filter
 
 Node ini menyaring kolom yang relevan dan menghapus atribut seperti *name*, *mfr*, dan *type* untuk memfokuskan analisis pada variabel nutrisi.
 
-### ✔ Normalizer
+### Normalizer
 
 Menormalkan variabel numerik agar berada pada rentang yang sama sehingga mempermudah interpretasi visualisasi.
 
@@ -77,15 +77,15 @@ Menormalkan variabel numerik agar berada pada rentang yang sama sehingga memperm
 
 Tahapan ini bertujuan memahami pola dan distribusi data melalui berbagai grafik.
 
-### 📊 Histogram — *Sugars*
+### Histogram — *Sugars*
 
 Menunjukkan distribusi kandungan gula pada semua jenis sereal. Membantu melihat apakah gula tinggi mendominasi dataset.
 
-### 🔥 Heatmap — *Prediction vs Prediction*
+### Heatmap — *Prediction vs Prediction*
 
 Digunakan untuk melihat frekuensi dan proporsi antara kategori Healthy dan Less Healthy.
 
-### 🌐 Scatter Plot
+### Scatter Plot
 
 Tiga scatter plot digunakan untuk melihat korelasi antar variabel:
 
@@ -105,12 +105,12 @@ Node **Rule Engine** menghasilkan dua kategori utama:
 
 Berdasarkan output klasifikasi dari workflow, distribusi hasil prediction adalah sebagai berikut:
 
-### 🔢 Ringkasan Distribusi Kategori
+### Ringkasan Distribusi Kategori
 
 * **Healthy**: Mayoritas data
 * **Less Healthy**: Sebagian kecil, terutama pada sereal dengan kalori tinggi, serat rendah, atau gula tinggi
 
-### 📄 Daftar Hasil Prediction (urutan sesuai dataset)
+### Daftar Hasil Prediction (urutan sesuai dataset)
 
 Less Healthy, Healthy, Less Healthy, Less Healthy, Healthy, Healthy, Healthy, Healthy, Less Healthy, Less Healthy,
 Healthy, Healthy, Healthy, Healthy, Healthy, Healthy, Healthy, Healthy, Healthy, Healthy,
@@ -125,35 +125,35 @@ Less Healthy, Healthy, Healthy, Healthy, Healthy, Healthy, Healthy, Healthy, Hea
 
 Tahapan ini menjelaskan temuan penting berdasarkan grafik dan pola numerik dalam dataset.
 
-### 🔍 4.1 Insight dari Histogram (Sugars)
+### 4.1 Insight dari Histogram (Sugars)
 
 * Distribusi gula cenderung **melebar**, menunjukkan variasi besar antar merek sereal.
 * Kelompok **Less Healthy** umumnya berada pada bagian histogram dengan nilai gula yang lebih tinggi.
 * Insight: gula merupakan faktor kuat penentu kategori Less Healthy.
 
-### 🔍 4.2 Insight dari Scatter Plot
+### 4.2 Insight dari Scatter Plot
 
-#### 🍬 Sugars vs Rating
+#### Sugars vs Rating
 
 * Sereal dengan gula tinggi **tidak selalu** memiliki rating tinggi.
 * Terlihat kecenderungan bahwa rating konsumen lebih tinggi pada sereal yang seimbang antara gula dan nutrisi lain.
 
-#### 🔥 Calories vs Fiber
+#### Calories vs Fiber
 
 * Sereal rendah kalori tetapi tinggi serat sering masuk kategori **Healthy**.
 * Sereal berkalori tinggi namun berserat rendah mendominasi kategori **Less Healthy**.
 
-#### 🌿 Fiber vs Protein
+#### Fiber vs Protein
 
 * Produk dengan kombinasi **serat tinggi + protein tinggi** cenderung termasuk kelompok Healthy.
 * Kombinasi nutrisi ini memberikan profil gizi yang baik.
 
-### 🔥 4.3 Insight dari Heatmap
+### 4.3 Insight dari Heatmap
 
 * Heatmap menunjukkan jumlah data Healthy jauh lebih besar.
 * Ini menunjukkan dataset didominasi oleh produk yang secara nutrisi dinilai lebih baik berdasarkan formula yang digunakan.
 
-### ✨ 4.4 Pola Umum dari NutritionScore
+### 4.4 Pola Umum dari NutritionScore
 
 * NutritionScore tinggi didominasi oleh sereal kaya **protein** dan **serat**.
 * NutritionScore rendah muncul pada produk dengan **kalori tinggi namun serat rendah**.
@@ -164,25 +164,25 @@ Insight akhir: model sederhana ini cukup efektif memisahkan produk nutrisi baik 
 
 Workflow KNIME yang dibangun telah berhasil melakukan:
 
-### ✔ Pembersihan Data
+### Pembersihan Data
 
 Menghilangkan missing value dan mengatur format data menjadi konsisten.
 
-### ✔ Feature Engineering
+### Feature Engineering
 
 Membuat **NutritionScore** sebagai indikator kesehatan sederhana.
 
-### ✔ Klasifikasi
+### Klasifikasi
 
 Menghasilkan dua kategori kesehatan menggunakan Rule Engine.
 
-### ✔ Visualisasi
+### Visualisasi
 
 Menggunakan histogram, scatter plot, dan heatmap untuk memahami pola nutrisi.
 
 ---
 
-### 📌 Kesimpulan Utama
+### Kesimpulan Utama
 
 1. **Fiber** dan **protein** merupakan nutrisi yang paling berkontribusi terhadap kategori Healthy.
 2. **Sugars** adalah variabel yang paling banyak muncul pada kategori Less Healthy.
