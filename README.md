@@ -212,7 +212,7 @@ Workflow terdiri dari beberapa tahapan inti:
 
 Workflow ini menunjukkan bagaimana KNIME dapat digunakan tanpa model machine learning kompleks tetapi tetap menghasilkan analisis mendalam.
 
-## **6.2 Hasil Klasifikasi"
+## **6.2 Hasil Klasifikasi**
 
 Dengan menggunakan formula sederhana:
 
